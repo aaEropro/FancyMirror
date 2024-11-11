@@ -1,0 +1,25 @@
+<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="using:FancyMirror"
+             x:Class="FancyMirror.App"
+             RequestedThemeVariant="Light">
+    <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+
+    <Application.DataTemplates>
+        <local:ViewLocator/>
+    </Application.DataTemplates>
+
+    <Application.Styles>
+        <FluentTheme />
+    </Application.Styles>
+             
+    <Application.Resources>
+        <SolidColorBrush x:Key="Background">#FAFAFA</SolidColorBrush>
+        <SolidColorBrush x:Key="Primary">#797979</SolidColorBrush>
+        <SolidColorBrush x:Key="Accent">#33D3C2</SolidColorBrush>
+        <SolidColorBrush x:Key="AccentLight">#74decf</SolidColorBrush>
+        <SolidColorBrush x:Key="Warning">#FF0000</SolidColorBrush>
+        
+        <FontFamily x:Key="MainFont">JetBrains Mono</FontFamily>
+    </Application.Resources>
+</Application>

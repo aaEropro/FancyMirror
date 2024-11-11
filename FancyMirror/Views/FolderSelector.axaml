@@ -1,0 +1,130 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:FancyMirror.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="1024" d:DesignHeight="714"
+             Width="1024" Height="714"
+             x:Class="FancyMirror.Views.FolderSelector"
+             x:DataType="viewModels:MainWindowViewModel">
+    
+    <UserControl.Styles>
+        <Style Selector="Label">
+            <Setter Property="FontFamily" Value="JetBrains Mono"/>
+        </Style>
+        
+        <Style Selector="TextBlock">
+            <Setter Property="FontFamily" Value="JetBrains Mono"/>
+        </Style>
+        
+        <!-- Confirm button styling -->
+        <Style Selector="Button">
+            <Setter Property="FontFamily" Value="JetBrains Mono"/>
+        </Style>
+        
+        <Style Selector="Button.Confirm">
+            <Setter Property="Background" Value="{DynamicResource Accent}" />
+            <Setter Property="Padding" Value="16, 8" />
+            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="FontWeight" Value="Medium" />
+            <Setter Property="FontSize" Value="16" />
+        </Style>
+        
+        <Style Selector="Button.Confirm:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="Red" />
+            <Setter Property="Opacity" Value="0.6" />
+            <Setter Property="RenderTransform" Value="scale(1)"/>
+        </Style>
+        
+    </UserControl.Styles>
+    
+    <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="8">
+        <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
+            <Label FontSize="24">Welcome to</Label>
+            <Label FontSize="24" FontWeight="Bold">FancyMirror</Label>
+        </StackPanel>
+        
+        <Border BorderBrush="{DynamicResource Primary}" BorderThickness="2"
+                CornerRadius="32" Padding="64">
+                
+            <StackPanel Orientation="Vertical" Spacing="16">
+                
+                <!-- Custom Styles -->
+                <StackPanel.Styles>
+                    
+                    <Style Selector="Button">
+                        <Setter Property="Padding" Value="2" />
+                        <Setter Property="Foreground" Value="Black" />
+                        <Setter Property="Background" Value="Transparent" />
+                    </Style>
+                    <Style Selector="Button:pointerover /template/ ContentPresenter">
+                        <Setter Property="Background" Value="Transparent" />
+                        <Setter Property="Foreground" Value="{DynamicResource Primary}"/>
+                        <Setter Property="Opacity" Value="0.6" />
+                        <Setter Property="RenderTransform" Value="scale(1.1)"/>
+                    </Style>
+                    <Style Selector="Button Image">
+                        <Setter Property="Width" Value="24"/>
+                        <Setter Property="Height" Value="24"/>
+                    </Style>
+                </StackPanel.Styles>
+                
+                <TextBlock TextWrapping="Wrap" Width="500" FontSize="18">
+                    Please select the folders containing the files you want to generate the diff to:
+                </TextBlock>
+                
+                <Border Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2"
+                        BorderBrush="{DynamicResource Primary}" BorderThickness="2"
+                        CornerRadius="8"
+                        Width="500">
+                    <Grid ColumnDefinitions="*, Auto">
+                        
+                        <Label Grid.Column="0" 
+                               VerticalAlignment="Center" 
+                               Padding="16, 0"
+                               FontSize="14" 
+                               Foreground="{DynamicResource Primary}" 
+                               Opacity="0.5"
+                               Content="{Binding FolderOnePath, TargetNullValue='No Folder Selected'}">
+                        </Label>
+                        <Button Grid.Column="1"
+                                Command="{Binding SelectFirstFolderCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
+                            <Image Source="{SvgImage /Assets/Icons/add-folder.svg}"/>
+                        </Button>
+                    </Grid>
+                </Border>
+                
+                <Border Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2"
+                        BorderBrush="{DynamicResource Primary}" BorderThickness="2"
+                        CornerRadius="8"
+                        Width="500">
+                    <Grid ColumnDefinitions="*, Auto">
+                        <Label Grid.Column="0" 
+                               VerticalAlignment="Center" 
+                               Padding="16, 0"
+                               FontFamily="JetBrains Mono" 
+                               FontSize="14" 
+                               Foreground="{DynamicResource Primary}" 
+                               Opacity="0.5"
+                               Content="{Binding FolderTwoPath, TargetNullValue='No Folder Selected'}"/>
+                        <Button Grid.Column="1"
+                                Command="{Binding SelectSecondFolderCommand}"
+                                CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
+                            <Image Source="{SvgImage /Assets/Icons/add-folder.svg}"/>
+                        </Button>
+                    </Grid>
+                </Border>
+                
+                <Button HorizontalAlignment="Right"
+                        Classes="Confirm"
+                        Click="Continue"
+                        Content="Confirm"
+                        IsEnabled="{Binding AreFoldersSelected}"/>
+                
+            </StackPanel>
+
+        </Border>
+    </StackPanel>
+    
+</UserControl>

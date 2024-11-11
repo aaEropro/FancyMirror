@@ -1,0 +1,58 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:FancyMirror.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="FancyMirror.Views.DifferView"
+             x:DataType="viewModels:MainWindowViewModel">
+
+    <Grid ColumnDefinitions="200, Auto, *, Auto, Auto">
+    
+        <!-- file navigator -->
+        <ScrollViewer Grid.Column="0" HorizontalScrollBarVisibility="Auto" Padding="2">
+            <StackPanel Orientation="Vertical" Margin="10" Spacing="8" Name="ButtonsStackPanel" />
+        </ScrollViewer>
+        
+        <GridSplitter Grid.Column="1" Background="{DynamicResource Primary}" 
+                      ResizeDirection="Columns" Margin="2, 0">
+        </GridSplitter>
+        
+        <!-- text display -->
+        <ScrollViewer Grid.Column="2" HorizontalScrollBarVisibility="Disabled">
+            <TextBlock TextAlignment="Left" 
+                       xml:space="preserve"
+                       FontFamily="{DynamicResource MainFont}"
+                       FontSize="16"
+                       TextWrapping="Wrap"
+                       Margin="10, 10"
+                       Name="ContentTextBloc">
+                </TextBlock>    
+        </ScrollViewer>
+
+        <Rectangle Grid.Column="3"
+                   Width="2"
+                   Fill="{DynamicResource Primary}"
+                   Margin="0, 10" />
+
+        <!-- settings and adjustment -->
+        <StackPanel Grid.Column="4"
+                    Orientation="Vertical"
+                    Margin="8">
+
+            <Button Padding="2"
+                    Background="{DynamicResource Background}">
+                <StackPanel>
+                    <Image Source="{SvgImage /Assets/Icons/view-off.svg}"
+                           Width="24" />
+                    <Label Content="Ignores"
+                           FontFamily="{DynamicResource MainFont}"
+                           FontSize="10" />
+                </StackPanel>
+            </Button>
+
+        </StackPanel>
+
+    </Grid>
+
+</UserControl>
