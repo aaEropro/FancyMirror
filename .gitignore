@@ -1,6 +1,8 @@
 ## Ignore build output directories
 /bin/
 /obj/
+FancyMirror/bin/
+FancyMirror/obj/
 
 ## Ignore user-specific files
 .idea/
