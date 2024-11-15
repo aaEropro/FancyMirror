@@ -1,0 +1,67 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:FancyMirror.ViewModels"
+             mc:Ignorable="d" d:DesignWidth="1024" d:DesignHeight="714"
+             x:Class="FancyMirror.Views.FolderSelectorView"
+             x:DataType="viewModels:MainWindowViewModel">
+  
+  <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="8">
+    <StackPanel Orientation="Horizontal" Spacing="8" HorizontalAlignment="Center">
+      <Label FontSize="24">Welcome to</Label>
+      <Label FontSize="24" FontWeight="Bold">FancyMirror</Label>
+    </StackPanel>
+
+    <Border BorderBrush="{DynamicResource Primary}" BorderThickness="2"
+            CornerRadius="32" Padding="64">
+
+      <StackPanel Orientation="Vertical" Spacing="16">
+
+        <TextBlock TextWrapping="Wrap" Width="500" FontSize="18">
+          Please select the folders containing the files you want to generate the diff to:
+        </TextBlock>
+
+        <Border BorderBrush="{DynamicResource Primary}" BorderThickness="2" 
+                CornerRadius="8" Width="500">
+          <Grid ColumnDefinitions="*, Auto">
+
+            <Label Grid.Column="0" VerticalAlignment="Center" Padding="16, 0" FontSize="14"
+                   Foreground="{DynamicResource Primary}" Opacity="0.5"
+                   Content="{Binding FolderOnePath, TargetNullValue='No Folder Selected'}"/>
+            
+            <Button Grid.Column="1" Classes="icon-only"
+                    Command="{Binding SelectFirstFolderCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
+              <Image Source="{SvgImage /Assets/Icons/add-folder.svg}" Width="24"/>
+            </Button>
+            
+          </Grid>
+        </Border>
+
+        <Border BorderBrush="{DynamicResource Primary}" BorderThickness="2"
+                CornerRadius="8" Width="500">
+          <Grid ColumnDefinitions="*, Auto">
+            <Label Grid.Column="0" VerticalAlignment="Center" Padding="16, 0" Opacity="0.5"
+                   FontFamily="JetBrains Mono" FontSize="14" Foreground="{DynamicResource Primary}"
+                   Content="{Binding FolderTwoPath, TargetNullValue='No Folder Selected'}" />
+            
+            <Button Grid.Column="1" Classes="icon-only"
+                    Command="{Binding SelectSecondFolderCommand}"
+                    CommandParameter="{Binding RelativeSource={RelativeSource AncestorType=Window}}">
+              <Image Source="{SvgImage /Assets/Icons/add-folder.svg}" Width="24"/>
+            </Button>
+            
+          </Grid>
+        </Border>
+
+        <Button HorizontalAlignment="Right" Classes="confirm" Content="Confirm" 
+                IsEnabled="{Binding AreFoldersSelected}" Click="Continue" />
+        
+      </StackPanel>
+
+    </Border>
+  </StackPanel>
+
+
+</UserControl>

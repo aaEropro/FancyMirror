@@ -11,11 +11,14 @@
 
     <Application.Styles>
         <FluentTheme />
+        <StyleInclude Source="Styles/WireframeDefaultStyles.axaml" />
     </Application.Styles>
              
     <Application.Resources>
         <SolidColorBrush x:Key="Background">#FAFAFA</SolidColorBrush>
         <SolidColorBrush x:Key="Primary">#797979</SolidColorBrush>
+        <SolidColorBrush x:Key="PrimaryLight">#BDBDBD</SolidColorBrush>
+        <SolidColorBrush x:Key="PrimaryDark">#5C5C5C</SolidColorBrush>
         <SolidColorBrush x:Key="Accent">#33D3C2</SolidColorBrush>
         <SolidColorBrush x:Key="AccentLight">#74decf</SolidColorBrush>
         <SolidColorBrush x:Key="Warning">#FF0000</SolidColorBrush>

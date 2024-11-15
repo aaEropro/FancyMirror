@@ -13,7 +13,7 @@ public partial class MainWindow : Window
     {
         InitializeComponent();
 
-        MainContent.Content = new FolderSelector(this);
+        MainContent.Content = new FolderSelectorView(this);
     }
 
     public void SwitchWindow()

@@ -1,12 +1,9 @@
-﻿using System.Threading.Tasks;
-using Avalonia;
-using Avalonia.Controls;
+﻿using Avalonia.Controls;
 using Avalonia.Interactivity;
-using Avalonia.Markup.Xaml;
 
 namespace FancyMirror.Views;
 
-public partial class FolderSelector : UserControl
+public partial class FolderSelectorView : UserControl
 {
     #region Private Members
 
@@ -25,7 +22,7 @@ public partial class FolderSelector : UserControl
     /// default constructor
     /// </summary>
     /// <param name="parentWindow"></param>
-    public FolderSelector(MainWindow parentWindow)
+    public FolderSelectorView(MainWindow parentWindow)
     {
         InitializeComponent();
         
@@ -49,5 +46,4 @@ public partial class FolderSelector : UserControl
     }
 
     #endregion
-    
 }

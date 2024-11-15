@@ -1,0 +1,69 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Design.PreviewWith>
+        <Border Padding="20" Background="Gray">
+            <StackPanel Spacing="10">
+                
+                <Button Content="Hello World" Classes="confirm" />
+                <Button Classes="icon-only">
+                    <Image Source="{SvgImage /Assets/Icons/add-folder.svg}" Width="20"/>
+                </Button>
+                
+            </StackPanel>
+        </Border>
+    </Design.PreviewWith>
+    
+    <Style Selector="Label">
+        <Setter Property="FontFamily" Value="JetBrains Mono" />
+    </Style>
+    <Style Selector="TextBlock">
+        <Setter Property="FontFamily" Value="JetBrains Mono" />
+    </Style>
+    
+    <!-- GENERIC BUTTON -->
+    <Style Selector="Button">
+        <Setter Property="Padding" Value="4" />
+        <Setter Property="FontFamily" Value="{DynamicResource MainFont}" />
+        <Setter Property="Foreground" Value="{DynamicResource Primary}" />
+        <Setter Property="Background" Value="{DynamicResource Background}" />
+    </Style>
+    
+    <Style Selector="Button:pointerover /template/ ContentPresenter">
+        <Setter Property="Foreground" Value="{DynamicResource Primary}" />
+        <Setter Property="Background" Value="{DynamicResource Background}" />
+    </Style>
+    
+    
+    <!-- CONFIRM BUTTON -->
+    <Style Selector="Button.confirm">
+        <Setter Property="Background" Value="{DynamicResource Accent}" />
+        <Setter Property="Padding" Value="16, 8" />
+        <Setter Property="CornerRadius" Value="8" />
+        <Setter Property="FontWeight" Value="Medium" />
+        <Setter Property="FontSize" Value="16" />
+    </Style>
+
+    <Style Selector="Button.confirm:pointerover /template/ ContentPresenter">
+        <Setter Property="Foreground" Value="Black"></Setter>
+        <Setter Property="Background" Value="{DynamicResource AccentLight}" />
+        <Setter Property="Opacity" Value="0.6" />
+        <Setter Property="RenderTransform" Value="scale(1)" />
+    </Style>
+    
+    
+    <!-- ICONS ONLY button -->
+    <Style Selector="Button.icon-only" >
+        <Setter Property="Padding" Value="4" />
+        <Setter Property="FontFamily" Value="{DynamicResource MainFont}" />
+        <Setter Property="Foreground" Value="{DynamicResource Primary}" />
+        <Setter Property="Background" Value="Transparent" />
+    </Style>
+    
+    <Style Selector="Button.icon-only:pointerover /template/ ContentPresenter">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryLight}" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="RenderTransform" Value="scale(1.1)"/>
+    </Style>
+    
+    
+</Styles>
